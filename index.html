@@ -14,6 +14,11 @@
       height: 150px;
       margin-bottom: 10px;
     }
+    input {
+      width: 50px;
+      margin: 0 10px;
+      text-align: center;
+    }
     button {
       padding: 10px 15px;
       background-color: #4CAF50;
@@ -37,58 +42,93 @@
       align-items: center;
       text-align: center;
     }
-    canvas {
+    img {
       margin-bottom: 10px;
     }
     a {
       color: #007BFF;
       text-decoration: none;
+      margin-bottom: 5px;
     }
     a:hover {
       text-decoration: underline;
+    }
+    .url {
+      font-size: 12px;
+      color: #555;
+      background-color: #f9f9f9;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      word-break: break-all;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 </head>
 <body>
   <h1>URL to QR Code Generator</h1>
-  <textarea id="inputText" placeholder="請輸入包含網址的文字..."></textarea>
-  <button onclick="generateQRCodes()">分析並生成 QR Code</button>
-  <div class="canvas" id="resultCanvas"></div>
+  <textarea id="inputText" placeholder="請輸入包含網址的文字..."><div class="py-1 px-4 rounded-2.5xl bg-light-ui-200 dark:bg-dark-ui-200 text-dark-text-100 dark:text-light-text-100"><div class="flex flex-col"><div class="flex space-s-3 py-3 items-center"><div class="flex min-w-0 flex-1 flex-col ps-1"><p class="text-body text-dark-text-100 dark:text-light-text-100"> 第 1 分组 <!----></p><button class="select-none border-none tap-highlight-transparent cursor-pointer font-sans bg-transparent p-0 text-body-small text-start truncate text-dark-text-200 dark:text-light-text-200" data-testid="sectionBreakoutCopyLinkRowLinkCopyButton"> kangleguoxiao1.padlet.org/chomee67_4/breakout-link/1L8k2PZw8xrWvEQN-o4ZnXBnj0npRXNda </button></div><!----><button class="select-none border-none tap-highlight-transparent cursor-pointer font-sans focus:outline-none flex items-center justify-center text-center py-0 h-8 rounded-xl text-body-small font-semibold ring-offset-1 focus-visible:ring-2 px-3 ring-grape-500 dark:ring-canary-500 dark:ring-offset-grey-900 ring-offset-white aria-disabled:bg-button-disabled-light dark:aria-disabled:bg-button-disabled-dark aria-disabled:text-dark-text-400 dark:aria-disabled:text-light-text-400 hover-hover:aria-disabled:bg-button-disabled-light hover-hover:dark:aria-disabled:bg-button-disabled-dark hover-hover:aria-disabled:text-dark-text-400 hover-hover:dark:aria-disabled:text-light-text-400  hover-hover:active:bg-grape-500 hover-hover:dark:active:bg-canary-500 hover-hover:active:text-light-text-100 hover-hover:dark:active:text-dark-text-100 bg-grey-100 dark:bg-grey-700 text-dark-text-200 dark:text-light-text-200 hover-hover:hover:bg-grey-200 hover-hover:dark:hover:bg-grey-600" title="複製" data-testid="sectionBreakoutCopyLinkRowCopyButton"><span class="flex-1 truncate">複製</span></button></div><div class="h-[0.5px] bg-divider-gray dark:bg-divider-gray-dark"></div></div><div class="flex flex-col"><div class="flex space-s-3 py-3 items-center"><div class="flex min-w-0 flex-1 flex-col ps-1"><p class="text-body text-dark-text-100 dark:text-light-text-100"> 第 2 分组 <!----></p><button class="select-none border-none tap-highlight-transparent cursor-pointer font-sans bg-transparent p-0 text-body-small text-start truncate text-dark-text-200 dark:text-light-text-200" data-testid="sectionBreakoutCopyLinkRowLinkCopyButton"> kangleguoxiao1.padlet.org/chomee67_4/breakout-link/kxPM2kxP3dDnqgbV-o4ZnXBnj0npRXNda </button></div><!----><button class="select-none border-none tap-highlight-transparent cursor-pointer font-sans focus:outline-none flex items-center justify-center text-center py-0 h-8 rounded-xl text-body-small font-semibold ring-offset-1 focus-visible:ring-2 px-3 ring-grape-500 dark:ring-canary-500 dark:ring-offset-grey-900 ring-offset-white aria-disabled:bg-button-disabled-light dark:aria-disabled:bg-button-disabled-dark aria-disabled:text-dark-text-400 dark:aria-disabled:text-light-text-400 hover-hover:aria-disabled:bg-button-disabled-light hover-hover:dark:aria-disabled:bg-button-disabled-dark hover-hover:aria-disabled:text-dark-text-400 hover-hover:dark:aria-disabled:text-light-text-400  hover-hover:active:bg-grape-500 hover-hover:dark:active:bg-canary-500 hover-hover:active:text-light-text-100 hover-hover:dark:active:text-dark-text-100 bg-grey-100 dark:bg-grey-700 text-dark-text-200 dark:text-light-text-200 hover-hover:hover:bg-grey-200 hover-hover:dark:hover:bg-grey-600" title="複製" data-testid="sectionBreakoutCopyLinkRowCopyButton"><span class="flex-1 truncate">複製</span></button></div><div class="h-[0.5px] bg-divider-gray dark:bg-divider-gray-dark"></div></div><div class="flex flex-col"><div class="flex space-s-3 py-3 items-center"><div class="flex min-w-0 flex-1 flex-col ps-1"><p class="text-body text-dark-text-100 dark:text-light-text-100"> 第 3 分组 <!----></p><button class="select-none border-none tap-highlight-transparent cursor-pointer font-sans bg-transparent p-0 text-body-small text-start truncate text-dark-text-200 dark:text-light-text-200" data-testid="sectionBreakoutCopyLinkRowLinkCopyButton"> kangleguoxiao1.padlet.org/chomee67_4/breakout-link/x1rD2JN87xDX20dM-o4ZnXBnj0npRXNda </button></div><!----><button class="select-none border-none tap-highlight-transparent cursor-pointer font-sans focus:outline-none flex items-center justify-center text-center py-0 h-8 rounded-xl text-body-small font-semibold ring-offset-1 focus-visible:ring-2 px-3 ring-grape-500 dark:ring-canary-500 dark:ring-offset-grey-900 ring-offset-white aria-disabled:bg-button-disabled-light dark:aria-disabled:bg-button-disabled-dark aria-disabled:text-dark-text-400 dark:aria-disabled:text-light-text-400 hover-hover:aria-disabled:bg-button-disabled-light hover-hover:dark:aria-disabled:bg-button-disabled-dark hover-hover:aria-disabled:text-dark-text-400 hover-hover:dark:aria-disabled:text-light-text-400  hover-hover:active:bg-grape-500 hover-hover:dark:active:bg-canary-500 hover-hover:active:text-light-text-100 hover-hover:dark:active:text-dark-text-100 bg-grey-100 dark:bg-grey-700 text-dark-text-200 dark:text-light-text-200 hover-hover:hover:bg-grey-200 hover-hover:dark:hover:bg-grey-600" title="複製" data-testid="sectionBreakoutCopyLinkRowCopyButton"><span class="flex-1 truncate">複製</span></button></div><div class="h-[0.5px] bg-divider-gray dark:bg-divider-gray-dark"></div></div><div class="flex flex-col"><div class="flex space-s-3 py-3 items-center"><div class="flex min-w-0 flex-1 flex-col ps-1"><p class="text-body text-dark-text-100 dark:text-light-text-100"> 第四組 <!----></p><button class="select-none border-none tap-highlight-transparent cursor-pointer font-sans bg-transparent p-0 text-body-small text-start truncate text-dark-text-200 dark:text-light-text-200" data-testid="sectionBreakoutCopyLinkRowLinkCopyButton"> kangleguoxiao1.padlet.org/chomee67_4/breakout-link/kQlGq5Qgj716qYW5-o4ZnXBnj0npRXNda </button></div><!----><button class="select-none border-none tap-highlight-transparent cursor-pointer font-sans focus:outline-none flex items-center justify-center text-center py-0 h-8 rounded-xl text-body-small font-semibold ring-offset-1 focus-visible:ring-2 px-3 ring-grape-500 dark:ring-canary-500 dark:ring-offset-grey-900 ring-offset-white aria-disabled:bg-button-disabled-light dark:aria-disabled:bg-button-disabled-dark aria-disabled:text-dark-text-400 dark:aria-disabled:text-light-text-400 hover-hover:aria-disabled:bg-button-disabled-light hover-hover:dark:aria-disabled:bg-button-disabled-dark hover-hover:aria-disabled:text-dark-text-400 hover-hover:dark:aria-disabled:text-light-text-400  hover-hover:active:bg-grape-500 hover-hover:dark:active:bg-canary-500 hover-hover:active:text-light-text-100 hover-hover:dark:active:text-dark-text-100 bg-grey-100 dark:bg-grey-700 text-dark-text-200 dark:text-light-text-200 hover-hover:hover:bg-grey-
+</textarea>
+  <div>
+    每列顯示格數：<input id="columnsInput" type="number" value="5" min="1">
+    <button id="updateColumnsButton">修改</button>
+  </div>
+  <button id="generateButton">Generate QR Codes</button>
+  <div class="canvas" id="qrCanvas"></div>
+
   <script>
-    function generateQRCodes() {
+    const qrCanvas = document.getElementById('qrCanvas');
+    const columnsInput = document.getElementById('columnsInput');
+
+    document.getElementById('generateButton').addEventListener('click', function () {
       const inputText = document.getElementById('inputText').value;
-      const urlRegex = /padlet\.com\/[^\s<>]+/g;
-      const urls = inputText.match(urlRegex);
-      const resultCanvas = document.getElementById('resultCanvas');
-      resultCanvas.innerHTML = ''; // 清空畫布內容
+      const matches = inputText.match(/LinkCopyButton\">(.*?)<\/button>/g);
 
-      if (!urls) {
-        alert('未找到任何有效的網址。');
-        return;
-      }
+      qrCanvas.innerHTML = '';
 
-      urls.forEach((url, index) => {
-        const card = document.createElement('div');
-        card.className = 'card';
+      if (matches) {
+        matches.forEach((match, index) => {
+          const url = match.replace(/LinkCopyButton\">|<\/button>/g, '').trim();
 
-        // 建立 QR Code
-        const canvas = document.createElement('canvas');
-        QRCode.toCanvas(canvas, url, { width: 200 }, (error) => {
-          if (error) console.error(error);
+          const card = document.createElement('div');
+          card.className = 'card';
+
+          QRCode.toDataURL(url, { width: 150, margin: 2 }, function (error, urlData) {
+            if (error) console.error(error);
+
+            const img = document.createElement('img');
+            img.src = urlData;
+            img.alt = `QR Code for ${url}`;
+
+            const urlText = document.createElement('div');
+            urlText.className = 'url';
+            urlText.textContent = url;
+
+            card.appendChild(img);
+           
+
+            const link = document.createElement('a');
+            link.href = url;
+            link.textContent = `第 ${index + 1} 頁`;
+            link.target = '_blank';
+
+            card.appendChild(link);
+            qrCanvas.appendChild(card);
+          });
         });
-        card.appendChild(canvas);
+      } else {
+        alert('No URLs found in the input text.');
+      }
+    });
 
-        // 加入頁數與超連結
-        const link = document.createElement('a');
-        link.href = `https://${url}`;
-        link.target = '_blank';
-        link.textContent = `第 ${index + 1} 頁`;
-        card.appendChild(link);
-
-        resultCanvas.appendChild(card);
-      });
-    }
+    document.getElementById('updateColumnsButton').addEventListener('click', function () {
+      const columns = parseInt(columnsInput.value, 10);
+      if (columns > 0) {
+        qrCanvas.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+      } else {
+        alert('列數必須大於0！');
+      }
+    });
   </script>
 </body>
 </html>
